@@ -43,10 +43,9 @@ As development progresses, the folder will reflect a more mature architecture wi
 
 ## 🛠 Tools & Tech Stack
 
-- **Simulation**: Vivado, ModelSim, or open-source alternatives (like Icarus Verilog)
-- **Language**: Verilog / VHDL (decided during progression)
+- **Simulation**: Vivado, or open-source alternatives (like Icarus Verilog)
+- **Language**: Verilog (as of now)
 - **Visualization**: GTKWave for waveform inspection
-- **Goal**: Eventually deploy on an FPGA (e.g., Basys 3 / Nexys A7 / Spartan series)
 
 ---
 
