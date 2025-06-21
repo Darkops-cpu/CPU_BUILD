@@ -1,8 +1,9 @@
-module ALU (a, b, zx, nx, zy, ny, f, no, out);
+module ALU (a, b, zx, nx, zy, ny, f, no, out, zr, ng);
 
     input [15:0] a, b;
     input zx, nx, zy, ny, f, no;
     output reg [15:0] out;
+    output reg zr, ng;
 
     reg [15:0] a_temp, b_temp;
     reg [15:0] out_temp;
@@ -54,6 +55,19 @@ module ALU (a, b, zx, nx, zy, ny, f, no, out);
         end
         
         out = out_temp;
+
+        if (!out) begin
+            zr = 1;            
+        end
+        else begin
+            zr = 0;
+        end
+        if (out < 0) begin
+            ng = 1;            
+        end
+        else begin
+            ng = 0;
+        end
 
     end
 

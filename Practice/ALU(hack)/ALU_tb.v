@@ -6,8 +6,9 @@ module ALU_tb;
     reg [15:0] a, b;
     reg zx, nx, zy, ny, f, no;
     wire [15:0] out;
+    wire zr, ng;
 
-    ALU uut ( .a(a), .b(b), .zx(zx), .nx(nx), .zy(zy), .ny(ny), .f(f), .no(no), .out(out));
+    ALU uut ( .a(a), .b(b), .zx(zx), .nx(nx), .zy(zy), .ny(ny), .f(f), .no(no), .out(out), .zr(zr), .ng(ng));
 
     initial begin
         $dumpfile("wave.vcd");
