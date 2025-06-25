@@ -11,8 +11,10 @@ git add .
 echo "pull from master"
 git pull origin main
 
-echo "making general commit"
-git commit -m "commit to update the entire structure"
+COMMIT_MSG=${1:-"Auto-update commit"}
+echo "[*] Committing with message: $COMMIT_MSG"
+git commit -m "$COMMIT_MSG" || echo "Nothing to commit."
+
 
 echo "push to master"
 git push origin main
