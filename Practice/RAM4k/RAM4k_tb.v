@@ -34,7 +34,11 @@ initial begin
     #10;
 
     clk = 0;
-    #10;   
+    load = 1;
+    #10;
+
+    in = 16'hDEAF;
+    sel = 12'b000000101011; 
 
     $finish;
 end
