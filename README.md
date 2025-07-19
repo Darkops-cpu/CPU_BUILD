@@ -1,5 +1,6 @@
 # CPU_BUILD
 ![Static Badge](https://img.shields.io/badge/status-ongoing-green)
+
 Welcome to **CPU_BUILD** — a personal journey into building a custom CPU from the ground up. This repository is a structured workspace where I explore digital logic design, CPU architecture, and gradually scale my understanding and implementation from fundamental logic gates to a fully functional 8-bit CPU — with plans to scale to 32-bit.
 
 ## 📁 Repository Structure
