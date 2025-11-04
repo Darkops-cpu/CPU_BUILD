@@ -1,73 +1,72 @@
 # CPU_BUILD
-![Static Badge](https://img.shields.io/badge/status-ongoing-green)
+![status-LTS](https://img.shields.io/badge/status-LTS-orange)  
 
-Welcome to **CPU_BUILD** — a personal journey into building a custom CPU from the ground up. This repository is a structured workspace where I explore digital logic design, CPU architecture, and gradually scale my understanding and implementation from fundamental logic gates to a fully functional 8-bit CPU — with plans to scale to 32-bit.
+16-bit CPU implemented in Verilog — tested with Icarus Verilog, Vivado and inspected with GTKWave.
 
-## 📁 Repository Structure
+This repository is a hands-on project exploring digital logic design and CPU architecture. It contains both small practice modules (gates, multiplexers, adders, RAM blocks) and a main 16-bit CPU design with testbenches and simulation outputs.
 
-This repository is divided into two main directories:
+## Key points
 
-### 🔬 `practice/`
-> _"Before you walk, you gotta crawl."_
+- Target: 16-bit CPU (primary)
+- Language: Verilog
+- Simulators / tools used: Icarus Verilog (iverilog + vvp), Xilinx Vivado, GTKWave
+- License: MIT
 
-This folder contains all my experimental and practice modules — a sandbox for learning the basics of digital design. You'll find:
+![Waveform preview](Ouputs/output_ripple_carry_adder.png)
 
-- ✅ Implementations of **basic logic gates** (AND, OR, NOT, XOR, etc.)
-- 🧱 Building blocks like **multiplexers, decoders**, and **flip-flops**
-- 🔁 Small-scale **combinational and sequential circuits**
-- 📘 Personal notes or simulation outputs as I test and debug
+## Quick start (Icarus Verilog)
 
-> This is the warm-up zone — messy, evolving, and crucial.
+Compile, run and view a waveform (replace FILE_name with the testbench name without extension):
 
----
+```bash
+iverilog -o FILE_name FILE_name_tb.v
+vvp FILE_name
+gtkwave wave.vcd
+```
 
-### 🧰 `main/`
-> _"This is where the real stuff happens."_
+Notes:
+- Many modules include their own testbenches in `Code/*/*_tb.v` and small test runners in the same directories.
+- For Vivado, open the project or create a new one and add source/testbench files; run behavioral simulation and export waveforms to view in GTKWave.
 
-The `main` folder will contain the primary design for the CPU architecture. This is the serious, structured, and scalable side of the repo.
+## Repository layout (high level)
 
-Planned milestones:
+Code/
+- Contains modules grouped by topic and their test benches. Examples:
+  - `ADD16/`, `ALU(hack)/`, `RAM*`, `MUX*/`, `DMUX*`, `HALF_ADDER/`, `FULL_ADDER/`, etc.
 
-- [ ] **8-bit CPU core**
-  - ALU
-  - Register file
-  - Control unit
-  - Instruction decoder
-  - Program counter
-- [ ] **Basic instruction set**
-- [ ] **Simulation & test benches**
-- [ ] **Eventually scale to 32-bit**
+Ouputs/
+- Waveform screenshots and exported images (used in documentation). Example: `output_ripple_carry_adder.png`.
 
-As development progresses, the folder will reflect a more mature architecture with detailed schematics and Verilog/VHDL/SystemVerilog modules (depending on final implementation choice).
+Other files
+- `README.md` — this file
+- `LICENSE.md` — MIT license
+- `push_script.sh` — personal helper script
 
----
+## Design notes
 
-## 🛠 Tools & Tech Stack
+- The CPU is built from the ground up using modular Verilog components. Each component has a testbench and many have waveform screenshots saved to `Ouputs/`.
+- The design is intended as an educational, extensible project — a clear path exists to expand from 16-bit to 32-bit if desired.
 
-- **Simulation**: Vivado, or open-source alternatives (like Icarus Verilog)
-- **Language**: Verilog (as of now)
-- **Visualization**: GTKWave for waveform inspection
+## Roadmap (suggestions)
 
----
+1. Finalize top-level CPU instruction set and documentation
+2. Add a small example program (loader + memory image) and a cycle-accurate simulation script
+3. Add CI to run Icarus Verilog testbenches automatically (GitHub Actions)
+4. Provide schematic / block diagram (SVG) and a short dev guide for contributors
 
----
+## How to contribute
 
-## 🧠 Philosophy
+- Open an issue to propose changes or fixes
+- Send a pull request with a clear description and tests (or a passing testbench)
 
-This isn't just about building a CPU. It's about understanding how a machine thinks — from electrons toggling gates to full-blown instruction execution. I'm documenting every step of the way, for myself and for anyone else starting their own hardware adventure.
+## Author
 
----
+_Darkops-cpu_
 
-## 📬 Feedback or Suggestions?
+## License
 
-Feel free to open an issue if you've got ideas, critiques, or want to collaborate. If you’re just watching, buckle up — it’s gonna be a gritty ride through the silicon jungle.
+This project is licensed under the MIT License — see `LICENSE.md` for details.
 
----
+## Contact
 
-## 📜 License
-
-[MIT License](LICENSE) — free to use, modify, or learn from.
-
----
-
-> “The CPU is the brain of the computer... so I’m building one neuron at a time.”
+If you'd like to collaborate or have questions, open an issue or add your contact info in the Author section.
